@@ -7,6 +7,10 @@
         mc:Ignorable="d"
        Title="Добавить паспорт" Height="565" Width="310" MinHeight="565" MinWidth="310" ResizeMode="NoResize">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="319*"/>
+            <RowDefinition Height="230*"/>
+        </Grid.RowDefinitions>
         <Label Content="Имя:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="Name" Height="23" Margin="10,36,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
         <Label Content="Фамилия:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
@@ -18,14 +22,14 @@
         <Label Content="Дата выдачи:" HorizontalAlignment="Left" Margin="10,226,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="DateOfIssued" Height="23" Margin="10,252,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
         <Label Content="Код подразделения:" HorizontalAlignment="Left" Margin="10,280,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="DepartmentCode" Height="23" Margin="10,306,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <Label Content="Серия и номер:" HorizontalAlignment="Left" Margin="10,334,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="SeriesAndNumber" Height="23" Margin="10,360,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <Label Content="Дата рождения:" HorizontalAlignment="Left" Margin="10,388,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="DateOfBirth" Height="23" Margin="10,414,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <Label Content="Место рождения:" HorizontalAlignment="Left" Margin="10,442,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="PlaceOfBirth" Height="23" Margin="10,468,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBox x:Name="DepartmentCode" Height="23" Margin="10,306,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <Label Content="Серия и номер:" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <TextBox x:Name="SeriesAndNumber" Height="23" Margin="10,41,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Row="1"/>
+        <Label Content="Дата рождения:" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <TextBox x:Name="DateOfBirth" Height="23" Margin="10,95,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Row="1"/>
+        <Label Content="Место рождения:" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <TextBox x:Name="PlaceOfBirth" Height="23" Margin="10,149,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Row="1"/>
 
-        <Button x:Name="BthAdd" Click="AddPassport" Content="Добавить" HorizontalAlignment="Right" Margin="0,0,10,10" Width="75" VerticalAlignment="Bottom" Height="25"/>
+        <Button x:Name="BthAdd" Click="AddPassport" Content="Добавить" HorizontalAlignment="Right" Margin="0,0,10,10" Width="75" VerticalAlignment="Bottom" Height="25" Grid.Row="1"/>
     </Grid>
 </Window>
