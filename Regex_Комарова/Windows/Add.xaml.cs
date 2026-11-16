@@ -35,10 +35,10 @@ namespace Regex_Комарова.Windows
                 DateOfBirth.Text = EditPassports.DateOfBirth;
                 PlaceOfBirth.Text = EditPassports.PlaceOfBirth;
                 this.EditPassports = EditPassports;
-                BthAdd.Content = "Изменить";
             }
+                BthAdd.Content = "Изменить";
         }
-
+        //смс задание
         private void AddPassport(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(Name.Text) || !Classes.Common.CheckRegex.Match(@"^[a-я-А-я]$*", Name.Text))
@@ -54,6 +54,36 @@ namespace Regex_Комарова.Windows
             if (string.IsNullOrEmpty(LastName.Text) || !Classes.Common.CheckRegex.Match(@"^[a-я-А-я]$*", LastName.Text))
             {
                 MessageBox.Show("Не правильно указано отчество пользователя");
+                return;
+            }
+            if (string.IsNullOrEmpty(Issued.Text) || !Classes.Common.CheckRegex.Match(@"^[а-яА-ЯёЁ\s\.\-\""]+$", Issued.Text))
+            {
+                MessageBox.Show("Не правильно указано, кем выдан паспорт");
+                return;
+            }
+            if (string.IsNullOrEmpty(DateOfIssued.Text) || !Classes.Common.CheckRegex.Match(@"^\d{2}\.\d{2}\.\d{4}$", DateOfIssued.Text))
+            {
+                MessageBox.Show("Не правильно указана дата выдачи (формат ДД.ММ.ГГГГ)");
+                return;
+            }
+            if (string.IsNullOrEmpty(DepartmentCode.Text) || !Classes.Common.CheckRegex.Match(@"^\d{3}-\d{3}$", DepartmentCode.Text))
+            {
+                MessageBox.Show("Не правильно указан код подразделения (формат XXX-XXX)");
+                return;
+            }
+            if (string.IsNullOrEmpty(SeriesAndNumber.Text) || !Classes.Common.CheckRegex.Match(@"^\d{4}\s\d{6}$", SeriesAndNumber.Text))
+            {
+                MessageBox.Show("Не правильно указана серия и номер (формат XXXX XXXXXX)");
+                return;
+            }
+            if (string.IsNullOrEmpty(DateOfBirth.Text) || !Classes.Common.CheckRegex.Match(@"^\d{2}\.\d{2}\.\d{4}$", DateOfBirth.Text))
+            {
+                MessageBox.Show("Не правильно указана дата рождения (формат ДД.ММ.ГГГГ)");
+                return;
+            }
+            if (string.IsNullOrEmpty(PlaceOfBirth.Text) || !Classes.Common.CheckRegex.Match(@"^[а-яА-ЯёЁ\s\,\-\.]+$", PlaceOfBirth.Text))
+            {
+                MessageBox.Show("Не правильно указано место рождения");
                 return;
             }
             if (EditPassports == null)
