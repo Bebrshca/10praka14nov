@@ -53,7 +53,7 @@ namespace Regex_Комарова
                 MessageBox.Show("Выберите элемент для удаления");
         }
 
-        internal void LoadPassport()
+        public void LoadPassport()
         {
             lv_passport.Items.Clear();
             foreach (Classes.Passport Passport in Passports)

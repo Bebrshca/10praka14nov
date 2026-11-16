@@ -34,5 +34,7 @@ namespace Regex_Комарова.Classes
 
         /// <summary> Место рождения </summary>
         public string PlaceOfBirth { get; set; }
+        //путь к карттнке
+        public string ImagePath { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,8 +36,24 @@ namespace Regex_Комарова.Windows
                 DateOfBirth.Text = EditPassports.DateOfBirth;
                 PlaceOfBirth.Text = EditPassports.PlaceOfBirth;
                 this.EditPassports = EditPassports;
+                if (!string.IsNullOrEmpty(EditPassports.ImagePath))
+                {
+                    _selectedImagePath = EditPassports.ImagePath;
+                    PreviewImage.Source = new BitmapImage(new Uri(_selectedImagePath));
+                }
             }
                 BthAdd.Content = "Изменить";
+        }
+        private string _selectedImagePath = null;
+
+        private void SelectImage(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog { Filter = "Images|*.jpg;*.png" };
+            if (ofd.ShowDialog() == true)
+            {
+                _selectedImagePath = ofd.FileName;
+                PreviewImage.Source = new BitmapImage(new Uri(_selectedImagePath));
+            }
         }
         //смс задание
         private void AddPassport(object sender, RoutedEventArgs e)
@@ -91,6 +108,7 @@ namespace Regex_Комарова.Windows
                 EditPassports = new Classes.Passport();
                 MainWindow.init.Passports.Add(EditPassports);
             }
+            EditPassports.ImagePath = _selectedImagePath;
             EditPassports.Name = Name.Text;
             EditPassports.FirstName = FirstName.Text;
             EditPassports.LastName = LastName.Text;

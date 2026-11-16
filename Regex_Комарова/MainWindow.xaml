@@ -19,6 +19,13 @@
                     <GridViewColumn Header="Серия и номер" Width="100" DisplayMemberBinding="{Binding SeriesAndNumber}"/>
                     <GridViewColumn Header="Дата рождения" Width="100" DisplayMemberBinding="{Binding DateOfBirth}"/>
                     <GridViewColumn Header="Место рождения" Width="100" DisplayMemberBinding="{Binding PlaceOfBirth}"/>
+                    <GridViewColumn Header="Фото" Width="60">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding ImagePath}" Width="50" Height="50" Stretch="Uniform"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
