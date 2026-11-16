@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace Regex_Комарова.Classes.Common
+{
+    public class CheckRegex
+    {
+        public static bool Match(string Pattern, string Input)
+        {
+            // Создаём регулярное выражение и ищим совпадения по паттерну
+            Match m = Regex.Match(Input, Pattern);
+            // Возвращаем результат
+            return m.Success;
+        }
+    }
+}
