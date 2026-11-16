@@ -21,12 +21,10 @@ namespace Regex_Комарова
     public partial class MainWindow : Window
     {
         public List<Classes.Passport> Passports = new List<Classes.Passport>();
-        /// <summary> Ссылка на инициализированное главное окно </summary>
         public static MainWindow init;
         public MainWindow()
         {
             InitializeComponent();
-            // Запоминаем в переменную проинициализированное главное окно
             init = this;
         }
 
@@ -37,15 +35,30 @@ namespace Regex_Комарова
 
         private void Update(object sender, RoutedEventArgs e)
         {
-
+            if (lv_passport.SelectedIndex > -1)
+                new Windows.Add(lv_passport.SelectedItem as Classes.Passport).ShowDialog();
+            else
+                MessageBox.Show("Выберите элемент для изменения");
         }
 
         private void Delete(object sender, RoutedEventArgs e)
         {
-
+            if (lv_passport.SelectedIndex > -1)
+            {
+                Passports.Remove(lv_passport.SelectedItem as Classes.Passport);
+                LoadPassport();
+            }
+            else
+                // Выводим сообщение
+                MessageBox.Show("Выберите элемент для удаления");
         }
-        public void LoadPassport(object sender, RoutedEventArgs e)
+
+        internal void LoadPassport()
         {
+            lv_passport.Items.Clear();
+            foreach (Classes.Passport Passport in Passports)
+                lv_passport.Items.Add(Passport);
+            throw new NotImplementedException();
 
         }
     }

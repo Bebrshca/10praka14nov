@@ -11,9 +11,7 @@ namespace Regex_Комарова.Classes.Common
     {
         public static bool Match(string Pattern, string Input)
         {
-            // Создаём регулярное выражение и ищим совпадения по паттерну
             Match m = Regex.Match(Input, Pattern);
-            // Возвращаем результат
             return m.Success;
         }
     }
